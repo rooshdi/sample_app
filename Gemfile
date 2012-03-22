@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
+gem 'bootstrap-sass', '2.0.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'pg', '0.12.2'
 
@@ -28,4 +29,5 @@ group :test do
   gem 'growl', '1.0.3'
   gem 'guard-spork', '0.5.2'
   gem 'spork', '0.9.0'
+  gem 'factory_girl_rails', '1.7.0'
 end
