@@ -6,7 +6,7 @@ describe "Static pages" do
 
   shared_examples_for "all static pages" do
     it { should have_selector('h1',    text: heading) }
-    it { should have_selector('title', text: full_title(page_title)) }
+    it { should have_selector('title', text: full_title('')) }
   end
 
   describe "Home page" do
@@ -15,6 +15,7 @@ describe "Static pages" do
     let(:page_title) { 'Home' }
 
     it_should_behave_like "all static pages"
+    it { should_not have_selector 'title', text: '| Home' }
   end
 
   describe "Help page" do
@@ -50,8 +51,9 @@ describe "Static pages" do
     click_link "Contact"
     page.should have_selector 'title', text: full_title('Contact')
     click_link "Home"
-    page.should have_selector 'title', text: full_title('Home')
     click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign up')
+    click_link "sample app"
+    page.should have_selector 'h1', text: 'Sample App'
   end
 end
